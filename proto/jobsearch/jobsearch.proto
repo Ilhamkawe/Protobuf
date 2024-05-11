@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package jobsearch;
+import "proto/dummy/application.proto";
+import "proto/basic/application.proto";
+option go_package = "protobuf/protogen/jobsearch";
+
+message jobCandidate {
+  uint32 job_candidate_id = 1;
+  dummy.Application application = 2;
+}
+
+message jobSoftware {
+  uint32 job_software_id = 1;
+  basic.Application application= 2;
+}

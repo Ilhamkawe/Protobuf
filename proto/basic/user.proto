@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "proto/communication/instant_messaging.proto";
+import "proto/communication/social_media.proto";
+
+option go_package = "protobuf/protogen/basic";
+
+enum Gender {
+  GENDER_UNKNOWN = 0;
+  GENDER_MALE = 1;
+  GENDER_FEMALE = 2;
+
+}
+
+message Address {
+  string street = 1;
+  string city = 2;
+  string country = 3;
+  Coordinate coordinate = 16;
+  message Coordinate {
+    double long = 1;
+    double lat = 2;
+  }
+}
+
+message User {
+  uint32 id = 1 [json_name = "ID"];
+  string username = 2 [json_name = "UserName"];
+  bool is_active = 3 [json_name = "is_active"];
+  bytes password =4 [json_name = "Password"];
+  repeated string emails = 5 [json_name = "Emails"];
+  Gender gender = 16 [json_name = "Gender"];
+  Address address = 6 [json_name = "Address"];
+  google.protobuf.Any comunincation_channel = 17;
+  oneof electonic_comm_channel {
+    communication.InstantMessaging instant_messaging= 7;
+    communication.SocialMedia social_media = 8;
+  }
+  map<string, uint32> skill_rate = 18;
+}

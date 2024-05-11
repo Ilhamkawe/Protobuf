@@ -1,0 +1,16 @@
+syntax = "proto3";
+package communication;
+option go_package = "protobuf/protogen/communication";
+
+enum SocialMediaPlatform  {
+  PLATFORM_UNSPECIFIED = 0;
+  PLATFORM_INSTAGRAM = 1;
+  PLATFORM_LINKEDIN = 2;
+  PLATFORM_WHATSAPP = 3;
+}
+
+message SocialMedia {
+  uint32 id = 1;
+  SocialMediaPlatform platform = 2;
+  string address = 3;
+}

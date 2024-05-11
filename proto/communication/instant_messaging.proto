@@ -1,0 +1,9 @@
+syntax = "proto3";
+package communication;
+option go_package = "protobuf/protogen/communication";
+
+message InstantMessaging {
+  uint32 id = 1;
+  string number = 2;
+  string note = 3;
+}

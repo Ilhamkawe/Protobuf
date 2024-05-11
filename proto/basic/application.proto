@@ -1,0 +1,10 @@
+syntax = "proto3";
+package basic;
+option go_package = "protobuf/protogen/basic";
+
+/* Software */
+message Application {
+  uint32 application_id = 1;
+  string application_version = 2;
+  string application_name = 3;
+}
